@@ -1,4 +1,4 @@
 FROM python:3
 
-ADD my_script.py /
+ADD exam/ /
 CMD ["python", "./my_script.py"]
