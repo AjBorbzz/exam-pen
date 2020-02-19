@@ -23,8 +23,12 @@ export class Products extends Component {
             <tr>
               <th>ID</th>
               <th>Name</th>
+              <th>Vendor</th>
+              <th>Product SKU</th>
               <th>Description</th>
               <th>Quantity</th>
+              <th>Is Shipped</th>
+              <th>Updated At</th>
               <th />
             </tr>
           </thead>
@@ -33,8 +37,12 @@ export class Products extends Component {
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.name}</td>
+                <td>{product.vendor}</td>
+                <td>{product.product_sku}</td>
                 <td>{product.description}</td>
                 <td>{product.quantity}</td>
+                <td>{product.is_shipped}</td>
+                <td>{product.updated_at}</td>
                 <td>
                   <button
                     className="btn btn-danger btn-sm"
