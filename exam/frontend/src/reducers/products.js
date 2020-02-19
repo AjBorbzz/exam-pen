@@ -1,4 +1,9 @@
-import { GET_PRODUCTS, DELETE_PRODUCT, ADD_PRODUCT } from "../actions/types.js";
+import {
+  GET_PRODUCTS,
+  DELETE_PRODUCT,
+  ADD_PRODUCT,
+  SHIP_PRODUCT
+} from "../actions/types.js";
 
 const initialState = {
   products: []
@@ -22,6 +27,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         products: [...state.products, action.payload]
+      };
+    case SHIP_PRODUCT: //not sure about this
+      return {
+        ...state,
+        products: state.products.reduce(acc, product => (product.quantity -= 1))
       };
     default:
       return state;

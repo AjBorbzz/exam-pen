@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getProducts, deleteProduct } from "../../actions/products";
+import {
+  getProducts,
+  deleteProduct,
+  shipProduct
+} from "../../actions/products";
 
 export class Products extends Component {
   static propTypes = {

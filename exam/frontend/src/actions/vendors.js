@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_VENDORS } from "./types";
+import { GET_VENDORS, ADD_VENDOR } from "./types";
 
 // GET Vendors
 export const getVendors = () => dispatch => {
@@ -14,15 +14,15 @@ export const getVendors = () => dispatch => {
     .catch(err => console.log(err));
 };
 
-// ADD Products : To simply my code I am going to ommit this for now
-// export const addProduct = product => dispatch => {
-//   axios
-//     .post("/api/products/", product)
-//     .then(res => {
-//       dispatch({
-//         type: ADD_PRODUCT,
-//         payload: res.data
-//       });
-//     })
-//     .catch(err => console.log(err));
-// };
+// ADD Vendor
+export const addVendor = vendor => dispatch => {
+  axios
+    .post("/api/vendors/", vendor)
+    .then(res => {
+      dispatch({
+        type: ADD_VENDOR,
+        payload: res.data
+      });
+    })
+    .catch(err => console.log(err));
+};

@@ -19,6 +19,9 @@ export class Header extends Component {
           <a className="navbar-brand" href="/">
             Products
           </a>
+          <a className="navbar-brand" href="#app1">
+            Vendors
+          </a>
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
         </div>
       </nav>

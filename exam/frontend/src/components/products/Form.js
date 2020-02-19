@@ -9,7 +9,8 @@ export class Form extends Component {
     vendor: "",
     product_sku: "",
     description: "",
-    quantity: ""
+    quantity: "",
+    num_stocks: ""
   };
 
   static propTypes = {
@@ -20,19 +21,34 @@ export class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { name, vendor, product_sku, description, quantity } = this.state;
+    const {
+      name,
+      vendor,
+      product_sku,
+      description,
+      quantity,
+      num_stocks
+    } = this.state;
     const product = {
       name,
       vendor,
       product_sku,
       description,
-      quantity
+      quantity,
+      num_stocks
     };
     this.props.addProduct(product);
   };
 
   render() {
-    const { name, vendor, product_sku, description, quantity } = this.state;
+    const {
+      name,
+      vendor,
+      product_sku,
+      description,
+      quantity,
+      num_stocks
+    } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
         <h2>Add Product</h2>
@@ -43,6 +59,7 @@ export class Form extends Component {
               className="form-control"
               type="text"
               name="name"
+              placeholder="Enter Name of Product"
               onChange={this.onChange}
               value={name}
             />
@@ -53,6 +70,7 @@ export class Form extends Component {
               className="form-control"
               type="text"
               name="vendor"
+              placeholder="Enter Vendor ID"
               onChange={this.onChange}
               value={vendor}
             />
@@ -63,6 +81,7 @@ export class Form extends Component {
               className="form-control"
               type="text"
               name="product_sku"
+              placeholder="Enter Product SKU"
               onChange={this.onChange}
               value={product_sku}
             />
@@ -72,6 +91,7 @@ export class Form extends Component {
             <input
               className="form-control"
               type="text"
+              placeholder="Enter Product Description"
               name="description"
               onChange={this.onChange}
               value={description}
@@ -83,8 +103,20 @@ export class Form extends Component {
               className="form-control"
               type="text"
               name="quantity"
+              placeholder="Enter Quantity"
               onChange={this.onChange}
               value={quantity}
+            />
+          </div>
+          <div className="form-group">
+            <label>No. Of Stocks</label>
+            <input
+              className="form-control"
+              type="text"
+              name="num_stocks"
+              placeholder="Enter Number of Stocks Available"
+              onChange={this.onChange}
+              value={num_stocks}
             />
           </div>
           <div className="form-group">

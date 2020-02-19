@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_PRODUCTS, DELETE_PRODUCT, ADD_PRODUCT } from "./types";
+import {
+  GET_PRODUCTS,
+  DELETE_PRODUCT,
+  ADD_PRODUCT,
+  SHIP_PRODUCT
+} from "./types";
 
 // GET Products
 export const getProducts = () => dispatch => {
@@ -22,6 +27,20 @@ export const deleteProduct = id => dispatch => {
     .then(res => {
       dispatch({
         type: DELETE_PRODUCT,
+        payload: id
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+// SHIP Products
+export const shipProduct = id => dispatch => {
+  axios
+    // use back ticks to provide a dynamic ${id}
+    .put(`/api/products/${id}/`)
+    .then(res => {
+      dispatch({
+        type: SHIP_PRODUCT,
         payload: id
       });
     })

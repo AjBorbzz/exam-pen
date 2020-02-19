@@ -1,4 +1,6 @@
 FROM python:3
 
 ADD exam/ /
-CMD ["python", "./my_script.py"]
+CMD "pip install --upgrade pip"
+
+RUN "pip install -r requirements.txt"
