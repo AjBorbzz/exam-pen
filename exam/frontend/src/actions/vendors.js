@@ -1,13 +1,13 @@
 import axios from "axios";
-import { GET_VENDOR } from "./types";
+import { GET_VENDORS } from "./types";
 
-// GET Products
+// GET Vendors
 export const getVendors = () => dispatch => {
   axios
-    .get("/api/products/")
+    .get("/api/vendors/")
     .then(res => {
       dispatch({
-        type: GET_PRODUCTS,
+        type: GET_VENDORS,
         payload: res.data
       });
     })

@@ -26,8 +26,9 @@ export class Products extends Component {
               <th>Vendor</th>
               <th>Product SKU</th>
               <th>Description</th>
-              <th>Quantity</th>
-              <th>Is Shipped</th>
+              <th>Total Quantity</th>
+              <th>No. Shipped</th>
+              <th>No. of Stocks</th>
               <th>Updated At</th>
               <th />
             </tr>
@@ -41,7 +42,8 @@ export class Products extends Component {
                 <td>{product.product_sku}</td>
                 <td>{product.description}</td>
                 <td>{product.quantity}</td>
-                <td>{product.is_shipped}</td>
+                <td>{product.num_shipped}</td>
+                <td>{product.num_stocks}</td>
                 <td>{product.updated_at}</td>
                 <td>
                   <button

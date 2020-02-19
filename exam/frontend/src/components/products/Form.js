@@ -6,6 +6,8 @@ import { addProduct } from "../../actions/products";
 export class Form extends Component {
   state = {
     name: "",
+    vendor: "",
+    product_sku: "",
     description: "",
     quantity: ""
   };
@@ -18,13 +20,19 @@ export class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { name, description, quantity } = this.state;
-    const product = { name, description, quantity };
+    const { name, vendor, product_sku, description, quantity } = this.state;
+    const product = {
+      name,
+      vendor,
+      product_sku,
+      description,
+      quantity
+    };
     this.props.addProduct(product);
   };
 
   render() {
-    const { name, description, quantity } = this.state;
+    const { name, vendor, product_sku, description, quantity } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
         <h2>Add Product</h2>
@@ -37,6 +45,26 @@ export class Form extends Component {
               name="name"
               onChange={this.onChange}
               value={name}
+            />
+          </div>
+          <div className="form-group">
+            <label>Vendor</label>
+            <input
+              className="form-control"
+              type="text"
+              name="vendor"
+              onChange={this.onChange}
+              value={vendor}
+            />
+          </div>
+          <div className="form-group">
+            <label>Product SKU</label>
+            <input
+              className="form-control"
+              type="text"
+              name="product_sku"
+              onChange={this.onChange}
+              value={product_sku}
             />
           </div>
           <div className="form-group">

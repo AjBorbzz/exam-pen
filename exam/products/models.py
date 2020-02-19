@@ -17,6 +17,7 @@ class Product(models.Model):
     product_sku = models.CharField(max_length=60)
     description = models.TextField(blank=True)
     quantity = models.IntegerField()
-    is_shipped = models.BooleanField(default=False)
+    num_shipped = models.IntegerField(default=0)
+    num_stocks = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
