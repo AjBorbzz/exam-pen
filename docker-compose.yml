@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+  django:
+    build: ./exam
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    volumes:
+      - ./exam:/app/exam
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  frontend:
+    build: ./exam/frontend
+    command: ["npm", "start"]
+    volumes:
+      - ./exam/frontend:/app/exam/frontend
+      - node-modules:/app/node_modules
+    ports:
+      - "3000:3000"
+
+volumes:
+  node-modules:
